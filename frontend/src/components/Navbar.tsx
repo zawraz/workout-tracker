@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 
-const Navbar = () => {
+function Navbar() {
 	return (
 		<header>
 			<div className="container">

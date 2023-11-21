@@ -3,7 +3,7 @@ import WorkoutDetails from "../components/WorkoutDetails"
 
 import { Workout } from "../types/types"
 
-const Home = () => {
+function Home() {
 	const [workouts, setWorkouts] = useState<Workout[] | null>(null)
 
 	useEffect(() => {
