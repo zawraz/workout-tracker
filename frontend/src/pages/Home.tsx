@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react"
 import WorkoutDetails from "../components/WorkoutDetails"
+import WorkoutForm from "../components/WorkoutForm"
 
 import { Workout } from "../types/types"
-import WorkoutForm from "../components/WorkoutForm"
 
 function Home() {
 	const [workouts, setWorkouts] = useState<Workout[] | null>(null)
