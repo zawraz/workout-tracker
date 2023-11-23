@@ -18,8 +18,8 @@ function WorkoutDetails({
 		const workoutData = await res.json()
 
 		if (res.ok) {
+			dispatch({ type: "DELETE_WORKOUT", payload: workoutData })
 		}
-		dispatch({ type: "DELETE_WORKOUT", payload: workoutData })
 	}
 
 	return (

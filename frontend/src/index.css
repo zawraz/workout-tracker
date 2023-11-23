@@ -3,13 +3,20 @@
 /* layout */
 :root {
 	--primary: #1aac83;
+	--secondary: #333;
+	--tertiary: #c5b358;
+	--quaternary: #f1f1f1;
 	--error: #e7195a;
 	--border-radius-primary: 4px;
 }
 body {
-	background: #f1f1f1;
+	background: var(--quaternary);
 	margin: 0;
 	font-family: "Poppins", "Arial", "sans-serif";
+}
+
+h1 {
+	margin: 0;
 }
 header {
 	background: #fff;
@@ -23,9 +30,13 @@ header .container {
 	justify-content: space-between;
 }
 header a {
-	color: #333;
+	padding: 10px;
+	color: var(--primary);
 	text-decoration: none;
+	border: 1px solid var(--tertiary);
+	border-radius: var(--border-radius-primary);
 }
+
 .pages {
 	max-width: 1400px;
 	padding: 20px;
@@ -61,10 +72,15 @@ header a {
 	top: 20px;
 	right: 20px;
 	cursor: pointer;
-	background: #f1f1f1;
+	background: var(--quaternary);
 	padding: 2px;
 	border-radius: var(--border-radius-primary);
-	color: #333;
+	color: var(--secondary);
+}
+
+.workout-details span:hover,
+.workout-details span:active {
+	background: var(--tertiary);
 }
 
 .icon-container {
@@ -96,7 +112,14 @@ form button {
 	border-radius: var(--border-radius-primary);
 	cursor: pointer;
 }
-div.error {
+
+form button:hover,
+form button:active {
+	background: var(--tertiary);
+	color: var(--primary);
+}
+
+.animation.error {
 	padding: 10px;
 	background: #ffefef;
 	border: 1px solid var(--error);
