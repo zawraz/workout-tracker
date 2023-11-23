@@ -1,6 +1,8 @@
 import { useState } from "react"
+import { useWorkoutsContext } from "../hooks/useWorkoutContext"
 
 function WorkoutForm() {
+	const { dispatch } = useWorkoutsContext()
 	const [title, setTitle] = useState("")
 	const [load, setLoad] = useState("")
 	const [reps, setReps] = useState("")
@@ -17,10 +19,10 @@ function WorkoutForm() {
 			headers: { "Content-Type": "application/json" },
 		})
 
-		const data = await res.json()
+		const workoutData = await res.json()
 
 		if (!res.ok) {
-			setError(data.error)
+			setError(workoutData.error)
 		}
 		if (res.ok) {
 			setTitle("")
@@ -29,6 +31,7 @@ function WorkoutForm() {
 
 			setError(null)
 			console.log("A new workout has been added to MongoDB.")
+			dispatch({ type: "CREATE_WORKOUT", payload: workoutData })
 		}
 	}
 	return (
