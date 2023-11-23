@@ -17,7 +17,7 @@ function Home() {
 			}
 		}
 		fetchWorkouts()
-	}, [])
+	}, [dispatch])
 
 	return (
 		<div className="home">

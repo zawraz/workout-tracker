@@ -18,3 +18,8 @@ function App() {
 }
 
 export default App
+
+// TODO:
+// 1. user accounts
+// 2. login page (keycloak?)
+// 3. authentication

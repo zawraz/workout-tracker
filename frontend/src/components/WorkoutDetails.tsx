@@ -1,4 +1,6 @@
+import formatDistanceToNow from "date-fns/formatDistanceToNow"
 import { useWorkoutsContext } from "../hooks/useWorkoutContext"
+import trashCanIcon from "../assets/trash-can.svg"
 
 import { Workout } from "../types/types"
 
@@ -31,8 +33,10 @@ function WorkoutDetails({
 				<strong>Reps: </strong>
 				{reps}
 			</p>
-			<p>{createdAt}</p>
-			<span onClick={handleDelete}>delete</span>
+			<p>{formatDistanceToNow(new Date(createdAt), { addSuffix: true })}</p>
+			<span className="icon-container" onClick={handleDelete}>
+				<img src={trashCanIcon} alt="A trash can icon" />
+			</span>
 		</div>
 	)
 }
