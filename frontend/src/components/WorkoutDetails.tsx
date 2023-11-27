@@ -1,5 +1,5 @@
 import formatDistanceToNow from "date-fns/formatDistanceToNow"
-import { useWorkoutsContext } from "../hooks/useWorkoutContext"
+import { useWorkoutsContext } from "../hooks/useWorkoutsContext"
 import trashCanIcon from "../assets/trash-can.svg"
 
 import { Workout } from "../types/types"
