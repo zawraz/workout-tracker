@@ -1,4 +1,9 @@
 const User = require("../models/User")
+const jwt = require("jsonwebtoken")
+
+const createToken = (id) => {
+	return jwt.sign({ id }, process.env.SECRET, { expiresIn: "7d" })
+}
 
 const loginUser = async (req, res) => {
 	res.json({ msg: "login user" })
@@ -9,7 +14,9 @@ const registerUser = async (req, res) => {
 	try {
 		const user = await User.register(email, password)
 
-		res.status(200).json({ email, user })
+		const token = createToken(user._id)
+
+		res.status(200).json({ email, token })
 	} catch (error) {
 		res.status(400).json({ error: error.message })
 	}
