@@ -13,6 +13,20 @@ const userSchema = new Schema({
 	password: { type: String, required: true },
 })
 
+// static method: login
+userSchema.statics.login = async function (email, password) {
+	if (!email || !password) throw Error("Please fill all the fields.")
+
+	const user = await this.findOne({ email })
+	if (!user) throw Error(`A user with provided email doesn't exist.`)
+
+	const isPasswordMatching = await bcrypt.compare(password, user.password)
+
+	if (!isPasswordMatching) throw Error("Invalid password.")
+
+	return user
+}
+
 // static method: register
 userSchema.statics.register = async function (email, password) {
 	if (!email || !password) throw Error("Please fill all the fields.")
@@ -21,9 +35,7 @@ userSchema.statics.register = async function (email, password) {
 		throw Error("Please enter a stronger password.")
 
 	const exists = await this.findOne({ email })
-	if (exists) {
-		throw Error("Email already exists in the database.")
-	}
+	if (exists) throw Error("Email already exists in the database.")
 
 	const salt = await bcrypt.genSalt(5)
 	const hash = await bcrypt.hash(password, salt)
