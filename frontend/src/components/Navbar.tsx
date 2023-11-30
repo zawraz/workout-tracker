@@ -7,6 +7,12 @@ function Navbar() {
 				<Link to="/">
 					<h1>Workout tracker</h1>
 				</Link>
+				<nav>
+					<div>
+						<Link to="/login">Login</Link>
+						<Link to="/register">Register</Link>
+					</div>
+				</nav>
 			</div>
 		</header>
 	)

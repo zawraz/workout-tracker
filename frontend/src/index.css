@@ -43,7 +43,7 @@ header a {
 	margin: 0 auto;
 }
 
-/* homepage */
+/* <Home /> */
 .home {
 	display: grid;
 	grid-template-columns: 3fr 1fr;
@@ -89,7 +89,7 @@ header a {
 	align-items: center;
 }
 
-/* new workout form */
+/* "Add a new workout" form */
 label,
 input {
 	display: block;
@@ -130,4 +130,22 @@ form button:active {
 
 input.error {
 	border: 1px solid var(--error);
+}
+
+/* <Navbar /> */
+nav {
+	display: flex;
+	align-items: center;
+}
+nav a {
+	margin-left: 10px;
+}
+/* auth forms */
+form.register,
+form.login {
+	max-width: 400px;
+	margin: 40px auto;
+	padding: 20px;
+	background: #fff;
+	border-radius: 4px;
 }
