@@ -119,7 +119,7 @@ form button:active {
 	color: var(--primary);
 }
 
-.animation.error {
+.error {
 	padding: 10px;
 	background: #ffefef;
 	border: 1px solid var(--error);

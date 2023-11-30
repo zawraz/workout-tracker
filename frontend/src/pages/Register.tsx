@@ -1,13 +1,15 @@
 import { useState } from "react"
+import useRegister from "../hooks/useRegister"
 
 export default function Register() {
 	const [email, setEmail] = useState("")
 	const [password, setPassword] = useState("")
+	const { register, isLoading, error } = useRegister()
 
 	const handleSubmit = async (e) => {
 		e.preventDefault()
 
-		console.log(email, password)
+		await register(email, password)
 	}
 
 	return (
@@ -28,6 +30,7 @@ export default function Register() {
 				value={password}
 			/>
 			<button>Register</button>
+			{error && <div className="error">{error}</div>}
 		</form>
 	)
 }
