@@ -1,5 +1,6 @@
-import formatDistanceToNow from "date-fns/formatDistanceToNow"
+import useAuthContext from "../hooks/useAuthContext"
 import useWorkoutsContext from "../hooks/useWorkoutsContext"
+import formatDistanceToNow from "date-fns/formatDistanceToNow"
 import trashCanIcon from "../assets/trash-can.svg"
 
 import { Workout } from "../types/types"
@@ -11,10 +12,16 @@ type Props = {
 function WorkoutDetails({
 	workout: { title, load, reps, createdAt, _id },
 }: Props) {
+	const { user } = useAuthContext()
 	const { dispatch } = useWorkoutsContext()
 
 	const handleDelete = async () => {
-		const res = await fetch(`/api/workouts/${_id}`, { method: "DELETE" })
+		if (!user) return
+
+		const res = await fetch(`/api/workouts/${_id}`, {
+			method: "DELETE",
+			headers: { Authorization: `Bearer ${user.token}` },
+		})
 		const workoutData = await res.json()
 
 		if (res.ok) {
