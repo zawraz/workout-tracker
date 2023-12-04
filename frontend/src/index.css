@@ -145,6 +145,7 @@ nav button {
 	color: var(--primary);
 	border: 1px solid var(--tertiary);
 	padding: 9px;
+	margin: 0 0 0 9px;
 	border-radius: var(--border-radius-primary);
 	font-family: "Poppins";
 	cursor: pointer;
