@@ -48,8 +48,7 @@ const postWorkout = async (req, res) => {
 	}
 
 	try {
-		const user_id = req.user._id
-		const workout = await Workout.create({ title, load, reps, user_id })
+		const workout = await Workout.create({ title, load, reps })
 		res.status(200).json(workout)
 	} catch (err) {
 		res.status(400).json({ error: err.message })
