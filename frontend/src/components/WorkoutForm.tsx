@@ -26,6 +26,7 @@ export default function WorkoutForm() {
 			body: JSON.stringify(workout),
 			headers: {
 				"Content-Type": "application/json",
+
 				Authorization: `Bearer ${user.token}`,
 			},
 		})
@@ -40,10 +41,11 @@ export default function WorkoutForm() {
 			setTitle("")
 			setLoad("")
 			setReps("")
-
+			setEmptyFields([])
 			setError(null)
-			console.log("A new workout has been added to MongoDB.")
 			dispatch({ type: "CREATE_WORKOUT", payload: workoutData })
+
+			console.log("A new workout has been added to MongoDB.")
 		}
 	}
 	return (
